@@ -1,0 +1,82 @@
+POST http://localhost:3000/thing HTTP/1.1
+content-type: application/json 
+
+{
+    "@context": "https://www.w3.org/2019/wot/td/v1",
+    "id": "urn:dev:ops:32473-WoTLamp-1234",
+    "title": "MyLampThing",
+    "securityDefinitions": {
+        "basic_sc": {"scheme": "basic", "in":"header"}
+    },
+    "security": ["basic_sc"],
+    "properties": {
+        "status" : {
+            "type": "string",
+            "forms": [{"href": "https://mylamp.example.com/status"}]
+        }
+    },
+    "actions": {
+        "toggle" : {
+            "forms": [{"href": "https://mylamp.example.com/toggle"}]
+        }
+    },
+    "events":{
+        "overheating":{
+            "data": {"type": "string"},
+            "forms": [{
+                "href": "https://mylamp.example.com/oh",
+                "subprotocol": "longpoll"
+            }]
+        }
+    }
+}
+
+###
+POST http://localhost:3000/thing HTTP/1.1
+content-type: application/json 
+
+{
+    "@context": "https://www.w3.org/2019/wot/td/v1",
+    "id": "urn:dev:ops:32473-WoTLamp-1234",
+    "title": 1325,
+    "securityDefinitions": {
+        "basic_sc": {"scheme": "basic", "in":"header"}
+    },
+    "security": ["basic_sc"],
+    "properties": {
+        "status" : {
+            "type": "string",
+            "forms": [{"href": "https://mylamp.example.com/status"}]
+        }
+    },
+    "actions": {
+        "toggle" : {
+            "forms": [{"href": "https://mylamp.example.com/toggle"}]
+        }
+    },
+    "events":{
+        "overheating":{
+            "data": {"type": "string"},
+            "forms": [{
+                "href": "https://mylamp.example.com/oh",
+                "subprotocol": "longpoll"
+            }]
+        }
+    }
+}
+
+###
+GET http://localhost:3000/thing/5f032a1d2ec743397c70c1e7 HTTP/1.1
+content-type: application/json 
+
+###
+GET http://localhost:3000/thing/?title=MyLampThing HTTP/1.1
+content-type: application/json
+
+###
+GET http://localhost:3000/thing/?description=MyLampThing HTTP/1.1
+content-type: application/json
+
+###
+GET http://localhost:3000/thing/?pepe=MyLampThing HTTP/1.1
+content-type: application/json

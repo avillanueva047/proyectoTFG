@@ -10,6 +10,8 @@ Lo primero que debemos hacer es crear un archivo `.env` en la raiz del proyecto,
 * DB_NAME, indica el nombre de la base de datos que la API utiliza de fondo. Es importante que crees manualmente la colección con el nombre que indiques aquí.
 * DB_USER, nombre de usuario de la base de datos.
 * DB_PASS, pasword de la base de datos.
+* GOOGLE_CLIENT_ID, id cliente del usuario google
+* GOOGLE_CLIENT_SECRET, clave secreta para el acceso al servicio
 
 Una vez generado el archivo `.env` vamos a procedder a instalar las dependencias de la aplicacion para ello ejecutas:
 

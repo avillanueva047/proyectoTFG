@@ -1,4 +1,4 @@
-POST http://localhost:3000/thing HTTP/1.1
+POST http://localhost:4100/thing HTTP/1.1
 content-type: application/json 
 
 {
@@ -32,7 +32,7 @@ content-type: application/json
 }
 
 ###
-POST http://localhost:3000/thing HTTP/1.1
+POST http://localhost:4100/thing HTTP/1.1
 content-type: application/json 
 
 {
@@ -66,17 +66,17 @@ content-type: application/json
 }
 
 ###
-GET http://localhost:3000/thing/5f032a1d2ec743397c70c1e7 HTTP/1.1
+GET http://localhost:4100/thing/5f0346f242c6180f1871834a HTTP/1.1
 content-type: application/json 
 
 ###
-GET http://localhost:3000/thing/?title=MyLampThing HTTP/1.1
+GET http://localhost:4100/thing/?title=MyLampThing HTTP/1.1
 content-type: application/json
 
 ###
-GET http://localhost:3000/thing/?description=MyLampThing HTTP/1.1
+GET http://localhost:4100/thing/?description=MyLampThing HTTP/1.1
 content-type: application/json
 
 ###
-GET http://localhost:3000/thing/?pepe=MyLampThing HTTP/1.1
+GET http://localhost:4100/thing/?pepe=MyLampThing HTTP/1.1
 content-type: application/json

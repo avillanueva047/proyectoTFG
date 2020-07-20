@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-temperature01',
@@ -9,7 +8,7 @@ import { timer } from 'rxjs';
 export class Temperature01Component implements OnInit {
 
   value = 0;
-  type: String = 'F';
+  type: String = 'C';
 
   constructor() { }
 
@@ -24,7 +23,6 @@ export class Temperature01Component implements OnInit {
         console.log(this.value);
         document.getElementById("stop3").setAttribute("offset", (this.value)+"%");
         document.getElementById("stop4").setAttribute("offset", (this.value)+"%");
-        // document.getElementById("animation3").setAttribute("values", (this.value)+"");
     }, 2000)
   }
   

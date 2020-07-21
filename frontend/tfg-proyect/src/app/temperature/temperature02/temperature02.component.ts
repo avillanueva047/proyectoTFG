@@ -36,8 +36,8 @@ export class Temperature02Component implements OnInit {
         else{
           document.getElementById("top-level").setAttribute("fill", "white");
         }
-        this.value = Math.round(this.value*90 / 100) - 40
-        
+        this.value = Math.round(this.value*90 / 100) - 40;
+        //this.value = Math.round(((this.value*9)/5)+31)   
     }, 2000)
   }
 

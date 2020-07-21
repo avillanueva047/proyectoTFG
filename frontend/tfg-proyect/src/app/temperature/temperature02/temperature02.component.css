@@ -1,3 +1,7 @@
 text{
     font-family: sans-serif;
 }
+
+.level{
+    transition: fill 1s ease;
+}

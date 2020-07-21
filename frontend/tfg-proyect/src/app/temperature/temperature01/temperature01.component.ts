@@ -23,6 +23,7 @@ export class Temperature01Component implements OnInit {
         console.log(this.value);
         document.getElementById("stop3").setAttribute("offset", (this.value)+"%");
         document.getElementById("stop4").setAttribute("offset", (this.value)+"%");
+        this.value = Math.round(this.value / 2);
     }, 2000)
   }
   

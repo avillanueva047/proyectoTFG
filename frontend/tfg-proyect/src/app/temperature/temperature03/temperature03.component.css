@@ -1,0 +1,45 @@
+.st0_path{
+    fill: none;
+    stroke-width: 30;
+    stroke-opacity: 0.3;
+    stroke-linecap: round;
+}
+
+.st0_fill{
+    fill: none;
+    stroke-width: 30;
+    stroke-opacity: 1;
+    stroke-linecap: round;
+    --initialStroke: 0 2200;
+    --transitionDuration: 1s;
+    stroke-dasharray: var(--initialStroke);
+    stroke-dashoffset: -1650;
+    transition: stroke-dasharray var(--transitionDuration) ease;
+}
+
+.st1_path{
+    fill: none;
+    stroke-width: 30;
+    stroke-opacity: 0.3;
+    stroke-linecap: round;
+}
+
+.st1_fill{
+    fill: none;
+    stroke-width: 30;
+    stroke-opacity: 1;
+    stroke-linecap: round;
+    --initialStroke: 0 2200;
+    --transitionDuration: 1s;
+    stroke-dasharray: var(--initialStroke);
+    stroke-dashoffset: -1650;
+    transition: stroke-dasharray var(--transitionDuration) ease;
+}
+
+.st2{
+    font-family: sans-serif;
+}
+
+.st3{
+    font-size: 10em;
+}

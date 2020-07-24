@@ -9,6 +9,14 @@ const routes: Routes = [
   {
     path: 'temperature',
     loadChildren: () => import('./temperature/temperature.module').then(m => m.TemperatureModule)
+  },
+  {
+    path: 'louver',
+    loadChildren: () => import('./louver/louver.module').then(m => m.LouverModule)
+  },
+  {
+    path: 'light',
+    loadChildren: () => import('./light/light.module').then(m => m.LightModule)
   }
 ];
 

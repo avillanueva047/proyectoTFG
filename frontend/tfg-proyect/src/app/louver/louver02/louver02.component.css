@@ -1,0 +1,25 @@
+.st0_path{
+    fill: none;
+    stroke: darkgoldenrod;
+    stroke-width: 30;
+    stroke-opacity: 0.3;
+    stroke-linecap: round;
+}
+
+.st0_fill{
+    fill: none;
+    stroke: darkgoldenrod;
+    stroke-width: 30;
+    stroke-opacity: 1;
+    stroke-linecap: square;
+    --initialStroke: 0 3400;
+    --transitionDuration: 1s;
+    stroke-dasharray: var(--initialStroke);
+    stroke-dashoffset: 0;
+    transition: stroke-dasharray var(--transitionDuration) ease;
+}
+
+.st1{
+    font-family: sans-serif;
+    font-size: 19em;
+}

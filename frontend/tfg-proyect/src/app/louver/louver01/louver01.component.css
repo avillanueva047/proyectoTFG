@@ -1,0 +1,4 @@
+.Louver{
+    fill: url(#deploy);
+    transition: fill 1s;
+}

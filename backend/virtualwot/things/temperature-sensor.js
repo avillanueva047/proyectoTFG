@@ -29,7 +29,7 @@ var td = {
                 "op": [
                     "readproperty",
                 ],
-                "href": "http://localhost:9000/virtual/temperature-sensor/temp",
+                "href": "http://localhost:9000/virtual/temperature-sensor/property/temp",
                 "contentType": "application/json"
             }],
 

@@ -3,23 +3,40 @@
 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 1920 1080" style="enable-background:new 0 0 1920 1080;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill:#FF0000;}
-	.st1{fill:none;}
 	.st2{fill:#FFFFFF;}
 	.st3{font-family:'ArialMT';}
 	.st4{font-size:450px;}
 </style>
 <g id="Color">
-	<path class="st0" d="M960.5,988.5H62C62,495.6,467.6,90,960.5,90S1859,495.6,1859,988.5H960.5z"/>
+	<defs>
+		<linearGradient id="mercurio" x1="0" y1="0" x2="100%" y2="0">
+			<stop id="stop1" offset="0%" stop-color="blue" />
+			<stop id="stop2" offset="100%" stop-color="red" style="stop-opacity:1" />
+		</linearGradient>
+	</defs>
+	<path class="st0" fill="url(#mercurio)" d="M960.5,988.5H62C62,495.6,467.6,90,960.5,90S1859,495.6,1859,988.5H960.5z"/>
 </g>
 <g id="Off">
-	<path class="st1" d="M959.6,988.5H61.1C61.1,495.6,466.7,90,959.6,90s898.5,405.6,898.5,898.5H959.6z"/>
+	<defs>
+		<linearGradient id="off" x1="0" y1="0" x2="100%" y2="0">
+			<stop id="stop3" offset="0%" stop-color="white" style="stop-opacity:0">
+
+			</stop>
+			<stop id="stop4" offset="0%" stop-color="white" style="stop-opacity:1">
+				
+			</stop>
+		</linearGradient>
+	</defs>
+	<path class="st1" fill="url(#off)" d="M959.6,988.5H61.1C61.1,495.6,466.7,90,959.6,90s898.5,405.6,898.5,898.5H959.6z"/>
 </g>
 <g>
 	<path class="st2" d="M960.5,989h-599c0-328.6,270.4-599,599-599s599,270.4,599,599H960.5z"/>
 </g>
-<rect x="493.5" y="611.5" class="st1" width="524.1" height="329.5"/>
-<text id="Value" transform="matrix(1.0653 0 0 1 509.6919 931.001)" class="st3 st4">25</text>
+<g id="text_container">
+	<text id="Value" transform="matrix(1.0653 0 0 1 509.6919 931.001)" class="st3 st4">
+		{{value}}
+	</text>
+</g>
 <g>
 	<path d="M960.5,91c60.5,0,121,6.2,179.9,18.4c57.4,11.9,113.9,29.6,168,52.6c53.1,22.6,104.4,50.6,152.4,83.2
 		c47.6,32.2,92.3,69.2,133,110c40.7,40.7,77.7,85.5,110,133c32.6,48,60.5,99.3,83.2,152.4c23.1,54.1,40.8,110.6,52.6,168
@@ -35,8 +52,7 @@
 		C802,407.7,880,391.7,960.1,391.7 M960.1,390.7c-328.6,0-599,270.4-599,599h599h599C1559.1,661.1,1288.7,390.7,960.1,390.7
 		L960.1,390.7z"/>
 </g>
-<rect x="1247.6" y="522.2" class="st1" width="7.9" height="3.2"/>
-<text id="Type" transform="matrix(1 0 0 1 1116.8193 940.6804)" class="st3 st4">C</text>
+<text id="Type" transform="matrix(1 0 0 1 1116.8193 940.6804)" class="st3 st4">{{type}}</text>
 <text transform="matrix(1 0 0 1 1027.1699 776.2529)" class="st3 st4">º</text>
 <rect x="362.1" y="986.5" class="st2" width="1196" height="42.8"/>
 </svg>

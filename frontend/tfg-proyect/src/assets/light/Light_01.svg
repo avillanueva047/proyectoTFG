@@ -3,7 +3,7 @@
 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 1200 1200" style="enable-background:new 0 0 1200 1200;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill:url(#Light_1_);}
+	/*.st0{fill:none;}*/
 	.st1{fill:#FFFFFF;stroke:#000000;stroke-miterlimit:10;}
 	.st2{fill:none;stroke:#CCCCCC;stroke-width:10;stroke-miterlimit:10;}
 	.st3{fill:#333333;}
@@ -11,12 +11,14 @@
 	.st5{fill:none;stroke:#CCCCCC;stroke-width:14;stroke-miterlimit:10;}
 	.st6{fill:none;stroke:#333333;stroke-width:10;stroke-miterlimit:10;}
 </style>
-<radialGradient id="Light_1_" cx="0.5222" cy="1199.4479" r="0.4573" gradientTransform="matrix(1150 0 0 -1150 -0.5 1379920)" gradientUnits="userSpaceOnUse">
-	<stop  offset="0" style="stop-color:#FFFFFF"/>
-	<stop  offset="0.3" style="stop-color:#FFFF00"/>
-	<stop  offset="1" style="stop-color:#FFFFFF"/>
-</radialGradient>
-<circle id="Light" class="st0" cx="600" cy="554.9" r="525.9"/>
+<defs>
+	<radialGradient id="state" cx="50%" cy="50%" r="50%">
+		<stop stop-color="white" offset="0%"/>
+		<stop offset="30%" stop-color="yellow"/>
+		<stop stop-color="white" offset="100%"/>
+	</radialGradient>
+</defs>
+<circle id="Light" fill="url(#state)" class="st0" class="st0" cx="600" cy="554.9" r="525.9"/>
 <path class="st1" d="M1025.7,403.5"/>
 <path class="st2" d="M420.8,701.8C332.6,646,274.4,549.6,274.4,440.1c0-172.7,144.8-312.7,323.4-312.7s323.4,140,323.4,312.7
 	c0,83-33.4,158.4-87.9,214.4c-17.3,17.7-36.6,33.5-57.7,46.9"/>

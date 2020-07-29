@@ -12,10 +12,10 @@ export class Louver02Component implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.fill();
+    this.loop();
   }
 
-  fill(){
+  loop(){
     let progress_celsius = document.getElementById("st0_fill");
     setInterval(
       () => {

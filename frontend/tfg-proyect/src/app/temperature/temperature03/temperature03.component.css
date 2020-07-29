@@ -1,5 +1,6 @@
 .st0_path{
     fill: none;
+    stroke: url(#level_celsius);
     stroke-width: 30;
     stroke-opacity: 0.3;
     stroke-linecap: round;
@@ -7,6 +8,7 @@
 
 .st0_fill{
     fill: none;
+    stroke: url(#level_celsius);
     stroke-width: 30;
     stroke-opacity: 1;
     stroke-linecap: round;
@@ -19,6 +21,7 @@
 
 .st1_path{
     fill: none;
+    stroke: url(#level_fahrenheit);
     stroke-width: 30;
     stroke-opacity: 0.3;
     stroke-linecap: round;
@@ -26,6 +29,7 @@
 
 .st1_fill{
     fill: none;
+    stroke: url(#level_fahrenheit);
     stroke-width: 30;
     stroke-opacity: 1;
     stroke-linecap: round;

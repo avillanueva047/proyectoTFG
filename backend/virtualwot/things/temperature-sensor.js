@@ -18,8 +18,8 @@ var td = {
                 "value": {
                     "@type": "C",
                     "type": "number",
-                    "minimum": -100,
-                    "maximum": 100
+                    "minimum": -30,
+                    "maximum": 60
                 }
             },
             "required": [

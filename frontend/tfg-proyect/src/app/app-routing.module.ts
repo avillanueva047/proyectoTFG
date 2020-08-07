@@ -17,6 +17,10 @@ const routes: Routes = [
   {
     path: 'light',
     loadChildren: () => import('./light/light.module').then(m => m.LightModule)
+  },
+  {
+    path: 'dimmer',
+    loadChildren: () => import('./dimmer/dimmer.module').then(m => m.DimmerModule)
   }
 ];
 

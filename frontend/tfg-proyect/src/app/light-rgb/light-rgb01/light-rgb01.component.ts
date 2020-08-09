@@ -9,7 +9,16 @@ export class LightRgb01Component implements OnInit {
 
   constructor() { }
 
+  red : number = 0;
+  green : number = 0;
+  blue : number = 0;
+
   ngOnInit(): void {
+    this.loop();
+  }
+
+  loop(){
+
   }
 
 }

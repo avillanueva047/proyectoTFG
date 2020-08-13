@@ -25,6 +25,10 @@ const routes: Routes = [
   {
     path: 'light-rgb',
     loadChildren: () => import('./light-rgb/light-rgb.module').then(m => m.LightRGBModule)
+  },
+  {
+    path: 'capacity',
+    loadChildren: () => import('./capacity/capacity.module').then(m => m.CapacityModule)
   }
 ];
 

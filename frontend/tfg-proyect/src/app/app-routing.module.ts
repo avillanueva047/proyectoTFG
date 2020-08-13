@@ -29,6 +29,10 @@ const routes: Routes = [
   {
     path: 'capacity',
     loadChildren: () => import('./capacity/capacity.module').then(m => m.CapacityModule)
+  },
+  {
+    path: 'wave',
+    loadChildren: () => import('./wave/wave.module').then(m => m.WaveModule)
   }
 ];
 

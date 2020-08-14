@@ -1,0 +1,48 @@
+.st0{
+    fill:url(#color-info);
+    stroke: #dbdbdb;
+}
+.st1{
+    font-family: sans-serif;
+}
+.st2{
+    font-size: 266.4838px;
+}
+.st3{
+    font-size: 494.3086px;
+}
+.st4{
+    font-size: 111.1872px;
+}
+
+.level{
+    stroke: transparent;
+    fill: url(#color-level);
+}
+
+#color-info{
+    transform: rotate(90deg);
+}
+
+#color-level{
+    transform: rotate(90deg);
+}
+
+#first-color{
+    stop-color: blue;
+}
+
+#second-color{
+    stop-color: white;
+}
+
+#third-color{
+    stop-color: white;
+    stop-opacity: 1;
+}
+
+#fourth-color{
+    stop-color: white;
+    stop-opacity: 0;
+}
+

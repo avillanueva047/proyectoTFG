@@ -53,38 +53,90 @@ app.get("/virtual/:thingType/:virtualThing", async (req, res)=>{
     }
 });
 
-/* API Routes */
-app.get("/virtual/:thingType/:virtualThing/:type/:interaction", async (req, res) => {
-    if(req.params.virtualThing == "temperature-sensor"){
-        td = require('./things/temperature-sensor');
-        if(req.params.interaction == "temp"){
-            res.send({
-                "value": randn_bm(td.properties.temp.properties.value.minimum,
-                                td.properties.temp.properties.value.maximum,
-                                0.5)
-            })
+/* Virtual Things API Routes */
+
+var state = false;      // Light switch state
+
+app.get("/virtual/:thingType/:virtualThing/:property", async (req, res) => {
+    /* Routes for Temperature Things */
+    if(req.params.thingType == "temperature_sensor"){
+        if(req.params.virtualThing == "temperature_celsius"){
+            td = require('./things/temperature_sensor/temperature_celsius');
+            if(req.params.property == "temperature"){
+                res.send({
+                    "value": randn_bm(td.properties.temperature.properties.value.minimum,
+                        td.properties.temperature.properties.value.maximum, 0.5)
+                })
+            }
+        }
+        else if(req.params.thingType == "temperature_farenheit"){
+            td = require('./things/temperature_sensor/temperature_farenheit');
+            if(req.params.property == "temperature"){
+                res.send({
+                    "value": randn_bm(td.properties.temperature.properties.value.minimum,
+                        td.properties.temperature.properties.value.maximum, 0.5)
+                })
+            }
         }
     }
 
-    else if(req.params.virtualThing == "capacity-counter"){
-        td = require('./things/capacity-counter');
-        if(req.params.interaction == "count"){
-            if (capacity_value < td.properties.count.properties.value.maximum){
-                res.send(
-                    {
-                        "value": randn_bm(
-                            td.properties.count.properties.value.minimum,
-                            td.properties.count.properties.value.maximum,
-                            0.6)
-                    }
-                )
-            }      
+    /* Routes for Capacity Things */
+    else if(req.params.thingType == "capacity_sensor"){
+        if(req.params.virtualThing == "capacity_cinema"){
+            td = require('./things/capacity_sensor/capacity_cinema');
+            if(req.params.property == "capacity"){
+                res.send({
+                    "value": parseInt(randn_bm(td.properties.capacity.properties.value.minimum,
+                        td.properties.capacity.properties.value.maximum, 0.5))
+                })
+            }
+        }
+        else if(req.params.virtualThing == "capacity_classroom"){
+            td = require('./things/capacity_sensor/capacity_classroom');
+            if(req.params.property == "capacity"){
+                res.send({
+                    "value": parseInt(randn_bm(td.properties.capacity.properties.value.minimum,
+                        td.properties.capacity.properties.value.maximum, 0.5))
+                })
+            }
+        }
+    }
+
+    /* Routes for Light Switch Things  */
+    else if(req.params.thingType == "light_switch"){
+        if(req.params.virtualThing == "light_switch"){
+            if(req.params.property == "state"){
+                res.send({
+                    "state": state
+                })
+            }
         }
     }
 })
 
+app.post("/virtual/:thingType/:virtualThing/:property", async (req, res) => {
+
+    /* Routes for Light Switch Things  */
+    if(req.params.thingType == "light_switch"){
+        if(req.params.virtualThing == "light_switch"){
+            td = require('./things/light_switch/light_switch')
+            if(req.params.property == "state"){
+                if(state){
+                    state = td.properties.state.properties.state.off
+                }
+                else{
+                    state = td.properties.state.properties.state.on
+                }
+                res.end()
+            } 
+        }
+    }
+
+    
+})
+
 /* Generate a random number using an normal distribution
-Taked from StackOverflow answer: shorturl.at/btwIN */
+Taked from StackOverflow answer: https://stackoverflow.com/q/25582882/8888135 */
 function randn_bm(min, max, skew) {
     let u = 0, v = 0;
     while(u === 0) u = Math.random(); //Converting [0,1) to (0,1)

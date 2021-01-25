@@ -121,12 +121,8 @@ app.post("/virtual/:thingType/:virtualThing/:property", async (req, res) => {
         if(req.params.virtualThing == "light_switch"){
             td = require('./things/light_switch/light_switch')
             if(req.params.property == "state"){
-                if(state){
+                state == false ? state = td.properties.state.properties.state.on : 
                     state = td.properties.state.properties.state.off
-                }
-                else{
-                    state = td.properties.state.properties.state.on
-                }
                 res.end()
             } 
         }

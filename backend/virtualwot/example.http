@@ -1,1 +1,7 @@
 GET http://localhost:9000/virtual/temperature-sensor/property/temp
+
+###
+GET http://localhost:9000/virtual/capacity-counter/property/count
+
+###
+

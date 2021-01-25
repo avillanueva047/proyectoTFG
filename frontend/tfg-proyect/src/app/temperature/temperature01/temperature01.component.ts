@@ -18,7 +18,7 @@ export class Temperature01Component implements OnInit {
     this.apireq.tdReq("http://localhost:9000/virtual/temperature-sensor/").subscribe(
       (data)=>{
         this.td = data;
-        this.type = this.td.properties.temp.properties.value["@type"]
+        this.type = this.td.properties.temp.properties.value["@type"];
     });
     this.loop();
   }

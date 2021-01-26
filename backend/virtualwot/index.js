@@ -129,6 +129,13 @@ app.post("/virtual/:thingType/:virtualThing/:property", async (req, res) => {
         }
     }
 
+    /* Routes for Blind Controller Things */
+    if(req.params.thingType == "blind_controller"){
+        if(req.params.virtualThing == "blind_controller"){
+            
+        }
+    }
+
     
 })
 

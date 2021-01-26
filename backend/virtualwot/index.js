@@ -22,6 +22,7 @@ app.use(bodyParser.json());
 /* Enable CORS on Express Middlewares */
 var cors = require('cors');
 app.use(cors());
+app.disable("x-powered-by");
 
 var td;
 

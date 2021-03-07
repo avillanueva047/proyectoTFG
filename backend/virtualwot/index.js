@@ -56,7 +56,9 @@ app.get("/virtual/:thingType/:virtualThing", async (req, res)=>{
 
 /* Virtual Things API Routes */
 
-var state = false;      // Light switch state
+var state = false;          // Light switch state
+var opened = 0;             // Blind percentage opened
+var alarm_state = false;    // Alarm state
 
 app.get("/virtual/:thingType/:virtualThing/:property", async (req, res) => {
     /* Routes for Temperature Things */
@@ -113,30 +115,100 @@ app.get("/virtual/:thingType/:virtualThing/:property", async (req, res) => {
             }
         }
     }
+
+    /* Routes for Blind Controller Things*/
+    else if(req.params.thingType == "blind_controller"){
+        if(req.params.virtualThing == "blind_controller"){
+            if(req.params.property == "open"){
+                res.send({
+                    "open": opened
+                })
+            }
+        }
+    }
+
+    /* Routes for Alarm Things */
+    else if(req.params.thingType == "alarm_controller"){
+        if(req.params.virtualThing == "alarm_controller"){
+            if(req.params.property == "state"){
+                res.send({
+                    "state": alarm_state
+                })
+            }
+        }
+    }
+
+    /* Routes for Wind Sensor */
+    if(req.params.thingType == "wind_sensor"){
+        if(req.params.virtualThing == "wind_sensor"){
+            td = require('./things/wind_sensor/wind_sensor')
+            if(req.params.property == "speed"){
+                res.send({
+                    "value": parseInt(randn_bm(td.properties.speed.properties.value.minimun,
+                        td.properties.speed.properties.value.maximun, 0.90)),
+                    "metric": `${td.properties.speed.properties.distance.measure}` + '/' + 
+                        `${td.properties.speed.properties.time.measure}`
+                })
+            }
+        }
+    }
 })
 
-app.post("/virtual/:thingType/:virtualThing/:property", async (req, res) => {
+app.post("/virtual/:thingType/:virtualThing/:action", async (req, res) => {
 
     /* Routes for Light Switch Things  */
     if(req.params.thingType == "light_switch"){
         if(req.params.virtualThing == "light_switch"){
-            td = require('./things/light_switch/light_switch')
-            if(req.params.property == "state"){
-                state == false ? state = td.properties.state.properties.state.on : 
-                    state = td.properties.state.properties.state.off
-                res.end()
-            } 
+            td = require('./things/light_switch/light_switch');
+            if(req.params.action == "on"){
+                state = td.properties.state.properties.state.on;
+                res.end();
+            }
+            else if(req.params.action == "off"){
+                state == td.properties.state.properties.state.off;
+                res.end();
+            }
+            else{
+                res.end();
+            }
         }
     }
 
     /* Routes for Blind Controller Things */
     if(req.params.thingType == "blind_controller"){
         if(req.params.virtualThing == "blind_controller"){
-            
+            td = require('./things/blind_controller/blind_controller');
+            if(req.params.action == "open" && opened < td.properties.open.properties.percentage.maximum){
+                opened = opened + 10;
+                res.end();
+            }
+            else if(req.params.action == "close" && opened > td.properties.open.properties.percentage.minimum){
+                opened = opened - 10;
+                res.end();
+            }
+            else{
+                res.end();
+            }
         }
     }
 
-    
+    /* Routes for Alarm Controller Things */
+    if(req.params.thingType == "alarm_controller"){
+        if(req.params.virtualThing == "alarm_controller"){
+            td = require('./things/alarm_controller/alarm_controller');
+            if(req.params.action == "activate"){
+                alarm_state = td.properties.state.properties.state.activate;
+                res.end();
+            }
+            else if(req.params.action == "deactivate"){
+                alarm_state = td.properties.state.properties.state.deactivate;
+                res.end()
+            }
+            else{
+                res.end();
+            }
+        }
+    }
 })
 
 /* Generate a random number using an normal distribution

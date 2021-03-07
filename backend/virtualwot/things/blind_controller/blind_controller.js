@@ -12,13 +12,13 @@ var td = {
         "basic_sc"
     ],
     "properties": {
-        "unfold": {
+        "open": {
             "type": "object",
             "properties": {
                 "percentage": {
                     "type": "number",
                     "minimum": 0,
-                    "maximum": 100,
+                    "maximum": 100
                 }
             },
             "required": [
@@ -28,7 +28,7 @@ var td = {
                 "op": [
                     "readproperty",
                 ],
-                "href": "http://localhost:9000/virtual/capacity_sensor/capacity_cinema/capacity",
+                "href": "http://localhost:9000/virtual/blind_controller/blind_controller/open",
                 "contentType": "application/json"
             }],
 

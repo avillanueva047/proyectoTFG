@@ -29,11 +29,15 @@ var td = {
                 "op": [
                     "readproperty",
                 ],
-                "href": "http://localhost:9000/virtual/temperature-sensor/temperature_farenheit/temperature",
+                "href": "http://localhost:9000/virtual/temperature_sensor/temperature_farenheit/temperature",
                 "contentType": "application/json"
             }],
         },
     },
-    "links": []
+    "links": [{
+        "interface-01": "http://localhost:4200/temperature/temperature-01",
+        "interface-02": "http://localhost:4200/temperature/temperature-02",
+        "interface-03": "http://localhost:4200/temperature/temperature-03"
+    }]
 }
 module.exports = td;

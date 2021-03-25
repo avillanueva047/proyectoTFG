@@ -15,10 +15,10 @@ export class Temperature01Component implements OnInit {
   constructor(private apireq: ApireqService) { }
 
   ngOnInit(): void {
-    this.apireq.tdReq("http://localhost:9000/virtual/temperature-sensor/").subscribe(
+    this.apireq.tdReq("http://localhost:9000/virtual/temperature_sensor/temperature_celsius").subscribe(
       (data)=>{
         this.td = data;
-        this.type = this.td.properties.temp.properties.value["@type"];
+        this.type = this.td.properties.temperature.properties.value["@type"];
     });
     this.loop();
   }
@@ -26,7 +26,7 @@ export class Temperature01Component implements OnInit {
   loop(){
     setInterval(
       () => {
-        this.apireq.tdReq(this.td.properties.temp.forms[0].href).subscribe(
+        this.apireq.tdReq(this.td.properties.temperature.forms[0].href).subscribe(
           (data: any)=>{
             this.value = Math.round(data.value);
             document.getElementById("stop3").setAttribute("offset", (Math.round(this.value + 30 * 1.11))+"%");

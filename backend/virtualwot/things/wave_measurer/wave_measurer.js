@@ -1,8 +1,8 @@
 var td = {
     "@context": "https://www.w3.org/2019/wot/td/v1",
-    "id": "urn:dev:ops:light_switch",
-    "title": "light_switch",
-    "@type": "acg:light_switch",
+    "id": "urn:dev:ops:wave_measurer",
+    "title": "wave_measurer",
+    "@type": "acg:wave_measurer",
     "securityDefinitions": {
         "basic_sc": {
             "scheme": "basic"
@@ -12,25 +12,33 @@ var td = {
         "basic_sc"
     ],
     "properties": {
-        "status": {
+        "scale": {
             "type": "object",
             "properties": {
-                "status": {
-                    "type": "boolean",
-                    "on": true,
-                    "off": false
+                "degree": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 9
+                },
+                "description": {
+                    "type": "string",
+                },
+                "height":{
+                    "type": "number",
+                    // How to define it
                 }
             },
             "required": [
-                "status",
+                "degree",
             ],
             "forms": [{
                 "op": [
                     "readproperty",
                 ],
-                "href": "http://localhost:9000/virtual/light_switch/light_switch/status",
+                "href": "http://localhost:9000/virtual/wind_sensor/wind_sensor/speed",
                 "contentType": "application/json"
             }],
+
         },
     },
     "links": []

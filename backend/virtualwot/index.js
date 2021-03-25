@@ -56,9 +56,9 @@ app.get("/virtual/:thingType/:virtualThing", async (req, res)=>{
 
 /* Virtual Things API Routes */
 
-var state = false;          // Light switch state
+var status = false;          // Light switch status
 var opened = 0;             // Blind percentage opened
-var alarm_state = false;    // Alarm state
+var alarm_status = false;    // Alarm status
 
 app.get("/virtual/:thingType/:virtualThing/:property", async (req, res) => {
     /* Routes for Temperature Things */
@@ -72,7 +72,7 @@ app.get("/virtual/:thingType/:virtualThing/:property", async (req, res) => {
                 })
             }
         }
-        else if(req.params.thingType == "temperature_farenheit"){
+        else if(req.params.virtualThing == "temperature_farenheit"){
             td = require('./things/temperature_sensor/temperature_farenheit');
             if(req.params.property == "temperature"){
                 res.send({
@@ -108,9 +108,9 @@ app.get("/virtual/:thingType/:virtualThing/:property", async (req, res) => {
     /* Routes for Light Switch Things  */
     else if(req.params.thingType == "light_switch"){
         if(req.params.virtualThing == "light_switch"){
-            if(req.params.property == "state"){
+            if(req.params.property == "status"){
                 res.send({
-                    "state": state
+                    "status": status
                 })
             }
         }
@@ -130,9 +130,9 @@ app.get("/virtual/:thingType/:virtualThing/:property", async (req, res) => {
     /* Routes for Alarm Things */
     else if(req.params.thingType == "alarm_controller"){
         if(req.params.virtualThing == "alarm_controller"){
-            if(req.params.property == "state"){
+            if(req.params.property == "status"){
                 res.send({
-                    "state": alarm_state
+                    "status": alarm_status
                 })
             }
         }
@@ -161,11 +161,11 @@ app.post("/virtual/:thingType/:virtualThing/:action", async (req, res) => {
         if(req.params.virtualThing == "light_switch"){
             td = require('./things/light_switch/light_switch');
             if(req.params.action == "on"){
-                state = td.properties.state.properties.state.on;
+                status = td.properties.status.properties.status.on;
                 res.end();
             }
             else if(req.params.action == "off"){
-                state == td.properties.state.properties.state.off;
+                status == td.properties.status.properties.status.off;
                 res.end();
             }
             else{
@@ -197,11 +197,11 @@ app.post("/virtual/:thingType/:virtualThing/:action", async (req, res) => {
         if(req.params.virtualThing == "alarm_controller"){
             td = require('./things/alarm_controller/alarm_controller');
             if(req.params.action == "activate"){
-                alarm_state = td.properties.state.properties.state.activate;
+                alarm_status = td.properties.status.properties.status.activate;
                 res.end();
             }
             else if(req.params.action == "deactivate"){
-                alarm_state = td.properties.state.properties.state.deactivate;
+                alarm_status = td.properties.status.properties.status.deactivate;
                 res.end()
             }
             else{

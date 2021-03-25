@@ -12,10 +12,10 @@ var td = {
         "basic_sc"
     ],
     "properties": {
-        "state": {
+        "status": {
             "type": "object",
             "properties": {
-                "state": {
+                "status": {
                     "type": "boolean",
                     "activate": true,
                     "deactivate": false,
@@ -28,7 +28,7 @@ var td = {
                 "op": [
                     "readproperty",
                 ],
-                "href": "http://localhost:9000/virtual/alarm_controller/alarm_controller/state",
+                "href": "http://localhost:9000/virtual/alarm_controller/alarm_controller/status",
                 "contentType": "application/json"
             }],
 

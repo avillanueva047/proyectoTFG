@@ -12,6 +12,7 @@ var td = {
         "basic_sc"
     ],
     "properties": {
+        /**/
         "temperature": {
             "type": "object",
             "properties": {
@@ -34,6 +35,11 @@ var td = {
             }],
         },
     },
-    "links": []
+    "links": [{
+        /*https://www.w3.org/TR/wot-thing-description/#link-serialization-json */
+        "interface-01": "http://localhost:4200/temperature/temperature-01",
+        "interface-02": "http://localhost:4200/temperature/temperature-02",
+        "interface-03": "http://localhost:4200/temperature/temperature-03"
+    }]
 }
 module.exports = td;

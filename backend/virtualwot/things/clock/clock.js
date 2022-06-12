@@ -1,8 +1,8 @@
 var td = {
     "@context": "https://www.w3.org/2019/wot/td/v1",
-    "id": "urn:dev:ops:wave_measurer",
-    "title": "wave_measurer",
-    "@type": "acg:wave_measurer",
+    "id": "urn:dev:ops:clock",
+    "title": "clock",
+    "@type": "acg:clock",
     "securityDefinitions": {
         "basic_sc": {
             "scheme": "basic"
@@ -12,33 +12,33 @@ var td = {
         "basic_sc"
     ],
     "properties": {
-        "scale": {
+        "time": {
             "type": "object",
             "properties": {
-                "grade": {
-                    "type": "number",
+                "hour": {
+                    "type": "integer",
                     "minimum": 0,
-                    "maximum": 9,
-                    "description": "Used the Douglas Scale metric"
+                    "maximum": 23
                 },
-                "description": {
-                    "type": "string",
-                }
+                "minute": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 59
+                },
             },
             "required": [
-                "grade",
+                "time",
             ],
             "forms": [{
                 "op": [
                     "readproperty",
                 ],
-                "href": "http://localhost:9000/virtual/wave_measurer/wave_measurer/grade",
+                "href": "http://localhost:9000/virtual/clock/clock/time",
                 "htv:methodName": "GET",
                 "contentType": "application/json"
             }],
 
         },
     },
-    "links": []
 }
 module.exports = td;

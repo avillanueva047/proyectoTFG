@@ -1,8 +1,8 @@
 var td = {
     "@context": "https://www.w3.org/2019/wot/td/v1",
-    "id": "urn:dev:ops:wave_measurer",
-    "title": "wave_measurer",
-    "@type": "acg:wave_measurer",
+    "id": "urn:dev:ops:humidity_sensor",
+    "title": "humidity_sensor",
+    "@type": "acg:humidity_sensor",
     "securityDefinitions": {
         "basic_sc": {
             "scheme": "basic"
@@ -12,27 +12,23 @@ var td = {
         "basic_sc"
     ],
     "properties": {
-        "scale": {
+        "percentage": {
             "type": "object",
             "properties": {
-                "grade": {
-                    "type": "number",
+                "percentage": {
+                    "type": "integer",
                     "minimum": 0,
-                    "maximum": 9,
-                    "description": "Used the Douglas Scale metric"
-                },
-                "description": {
-                    "type": "string",
+                    "maximum": 100
                 }
             },
             "required": [
-                "grade",
+                "percentage",
             ],
             "forms": [{
                 "op": [
                     "readproperty",
                 ],
-                "href": "http://localhost:9000/virtual/wave_measurer/wave_measurer/grade",
+                "href": "http://localhost:9000/virtual/humidity_sensor/humidity_sensor/percentage",
                 "htv:methodName": "GET",
                 "contentType": "application/json"
             }],

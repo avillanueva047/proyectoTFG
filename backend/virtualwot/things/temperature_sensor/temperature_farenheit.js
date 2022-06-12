@@ -30,6 +30,7 @@ var td = {
                     "readproperty",
                 ],
                 "href": "http://localhost:9000/virtual/temperature_sensor/temperature_farenheit/temperature",
+                "htv:methodName": "GET",
                 "contentType": "application/json"
             }],
         },

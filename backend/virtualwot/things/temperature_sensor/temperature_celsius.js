@@ -12,7 +12,6 @@ var td = {
         "basic_sc"
     ],
     "properties": {
-        /**/
         "temperature": {
             "type": "object",
             "properties": {
@@ -31,6 +30,7 @@ var td = {
                     "readproperty",
                 ],
                 "href": "http://localhost:9000/virtual/temperature_sensor/temperature_celsius/temperature",
+                "htv:methodName": "GET",
                 "contentType": "application/json"
             }],
         },

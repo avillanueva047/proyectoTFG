@@ -29,10 +29,60 @@ var td = {
                     "readproperty",
                 ],
                 "href": "http://localhost:9000/virtual/capacity_sensor/capacity_cinema/capacity",
+                "htv:methodName": "GET",
                 "contentType": "application/json"
             }],
-
         },
+    },
+    "action" : {
+        "increase" : {
+            "title" : "Increase Current Capacity",
+            "description" : "Increases the current capacity by one",
+            "input" : {
+                "type" : "object",
+                "properties": {
+                    "increment": {
+                        "type": "number",
+                        "const": 1
+                    }
+                },
+                "required": [
+                    "increment"
+                ],
+            },
+            "forms": [{
+                "op": [
+                    "writeproperty",
+                ],
+                "href": "http://localhost:9000/virtual/capacity_sensor/capacity_cinema/increase",
+                "htv:methodName": "POST",
+                "contentType": "application/json"
+            }]
+        },
+        "decrease" : {
+            "title" : "Decrease Current Capacity",
+            "description" : "Decreases the current capacity by one",
+            "input" : {
+                "type" : "object",
+                "properties": {
+                    "decrement": {
+                        "type": "number",
+                        "const": -1
+                    }
+                },
+                "required": [
+                    "decrement"
+                ],
+            },
+            "forms": [{
+                "op": [
+                    "writeproperty",
+                ],
+                "href": "http://localhost:9000/virtual/capacity_sensor/capacity_cinema/decrease",
+                "htv:methodName": "POST",
+                "contentType": "application/json"
+            }]
+        }
     },
     "links": []
 }

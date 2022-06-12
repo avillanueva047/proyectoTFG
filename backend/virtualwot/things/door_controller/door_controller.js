@@ -1,8 +1,8 @@
 var td = {
     "@context": "https://www.w3.org/2019/wot/td/v1",
-    "id": "urn:dev:ops:dimmer_controller",
-    "title": "dimmer_controller",
-    "@type": "acg:dimmer_controller",
+    "id": "urn:dev:ops:door_controller",
+    "title": "door_controller",
+    "@type": "acg:door_controller",
     "securityDefinitions": {
         "basic_sc": {
             "scheme": "basic"
@@ -12,52 +12,49 @@ var td = {
         "basic_sc"
     ],
     "properties": {
-        "status": {
+        "lock_status": {
             "type": "object",
             "properties": {
                 "status": {
                     "type": "boolean"
-                },
+                }
             },
             "required": [
-                "status",
+                "lock_status",
             ],
             "forms": [{
                 "op": [
                     "readproperty",
                 ],
-                "href": "http://localhost:9000/virtual/dimmer_controller/dimmer_controller/status",
+                "href": "http://localhost:9000/virtual/door_controller/door_controller/lock_status",
                 "htv:methodName": "GET",
                 "contentType": "application/json"
             }],
-
         },
-        "brightness":{
+        "open_status": {
             "type": "object",
             "properties": {
-                "percentage": {
-                    "type": "number",
-                    "minimum": 0,
-                    "maximum": 100
-                },
+                "status": {
+                    "type": "boolean"
+                }
             },
             "required": [
-                "intensity",
+                "open_status",
             ],
             "forms": [{
                 "op": [
                     "readproperty",
                 ],
-                "href": "http://localhost:9000/virtual/dimmer_controller/dimmer_controller/brightness",
+                "href": "http://localhost:9000/virtual/door_controller/door_controller/open_status",
                 "htv:methodName": "GET",
                 "contentType": "application/json"
             }],
         }
     },
     "action" : {
-        "switch" : {
-            "title" : "Dimmer Switch",
-            "description" : "Turns On / Off the Dimmer",
+        "lock" : {
+            "title" : "Locks the door",
+            "description" : "Locks the door safety",
             "output" : {
                 "type" : "object",
                 "properties": {
@@ -66,92 +63,87 @@ var td = {
                     }
                 },
                 "required": [
-                    "output"
+                    "status"
                 ],
             },
             "forms": [{
                 "op": [
                     "writeproperty",
                 ],
-                "href": "http://localhost:9000/virtual/dimmer_controller/dimmer_controller/switch",
+                "href": "http://localhost:9000/virtual/door_controller/door_controller/lock",
                 "htv:methodName": "POST",
                 "contentType": "application/json"
             }]
         },
-        "increase" : {
-            "title" : "Increase Brightness",
-            "description" : "Increases the brightness",
-            "input" : {
-                "type" : "object",
-                "properties": {
-                    "increase": {
-                        "type": "const",
-                        "value": 5
-                    }
-                },
-                "required": [
-                    "increase"
-                ],
-            },
+        "unlock" : {
+            "title" : "Unlocks the door",
+            "description" : "Unlocks the door safety",
             "output" : {
                 "type" : "object",
                 "properties": {
-                    "percentage": {
-                        "type": "integer",
-                        "minimum": 0,
-                        "maximum": 100
+                    "status": {
+                        "type": "boolean"
                     }
                 },
                 "required": [
-                    "percentage"
+                    "status"
                 ],
             },
             "forms": [{
                 "op": [
                     "writeproperty",
                 ],
-                "href": "http://localhost:9000/virtual/dimmer_controller/dimmer_controller/increase",
+                "href": "http://localhost:9000/virtual/door_controller/door_controller/unlock",
                 "htv:methodName": "POST",
                 "contentType": "application/json"
             }]
         },
-        "decrease" : {
-            "title" : "Decrease Brightness",
-            "description" : "Decreases the brightness",
-            "input" : {
-                "type" : "object",
-                "properties": {
-                    "decrease": {
-                        "type": "const",
-                        "value": -5
-                    }
-                },
-                "required": [
-                    "decrease"
-                ],
-            },
+        "open" : {
+            "title" : "Open Door",
+            "description" : "Opens the door",
             "output" : {
                 "type" : "object",
                 "properties": {
-                    "percentage": {
-                        "type": "integer",
-                        "minimum": 0,
-                        "maximum": 100
+                    "status": {
+                        "type": "boolean"
                     }
                 },
                 "required": [
-                    "percentage"
+                    "status"
                 ],
             },
             "forms": [{
                 "op": [
                     "writeproperty",
                 ],
-                "href": "http://localhost:9000/virtual/dimmer_controller/dimmer_controller/decrease",
+                "href": "http://localhost:9000/virtual/door_controller/door_controller/open",
                 "htv:methodName": "POST",
                 "contentType": "application/json"
             }]
-        }
+        },
+        "close" : {
+            "title" : "Close Door",
+            "description" : "Closes the door",
+            "output" : {
+                "type" : "object",
+                "properties": {
+                    "status": {
+                        "type": "boolean"
+                    }
+                },
+                "required": [
+                    "status"
+                ],
+            },
+            "forms": [{
+                "op": [
+                    "writeproperty",
+                ],
+                "href": "http://localhost:9000/virtual/door_controller/door_controller/close",
+                "htv:methodName": "POST",
+                "contentType": "application/json"
+            }]
+        },
     },
     "links": []
 }

@@ -15,24 +15,71 @@ var td = {
         "status": {
             "type": "object",
             "properties": {
-                "status": {
+                "activated": {
                     "type": "boolean",
-                    "activate": true,
-                    "deactivate": false,
                 }
             },
             "required": [
-                "value",
+                "activated",
             ],
             "forms": [{
                 "op": [
                     "readproperty",
                 ],
                 "href": "http://localhost:9000/virtual/alarm_controller/alarm_controller/status",
+                "htv:methodName": "GET",
                 "contentType": "application/json"
             }],
 
         },
+    },
+    "actions":{
+        "activate":{
+            "title" : "Activate Alarm",
+            "description" : "Activates the fire alarm",
+            "output" : {
+                "type" : "object",
+                "properties": {
+                    "activated": {
+                        "type": "boolean"
+                    }
+                },
+                "activated": [
+                    "status"
+                ],
+            },
+            "forms": [{
+                "op": [
+                    "writeproperty",
+                ],
+                "href": "http://localhost:9000/virtual/alarm_controller/alarm_controller/activate",
+                "htv:methodName": "POST",
+                "contentType": "application/json"
+            }]
+        },
+        "deactivate":{
+            "title" : "Deactivate Alarm",
+            "description" : "Deactivates the fire alarm",
+            "output" : {
+                "type" : "object",
+                "properties": {
+                    "activated": {
+                        "type": "boolean"
+                    }
+                },
+                "required": [
+                    "activated"
+                ],
+            },
+            "forms": [{
+                "op": [
+                    "writeproperty",
+                ],
+                "href": "http://localhost:9000/virtual/alarm_controller/alarm_controller/deactivate",
+                "htv:methodName": "POST",
+                "contentType": "application/json"
+            }]
+        }
     },
     "links": []
 }

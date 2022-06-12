@@ -17,11 +17,13 @@ var td = {
             "properties": {
                 "distance": {
                     "type": "string",
-                    "measure": "m"
+                    "unit": "m",
+                    "description": "Unit of distant, meters in this case"
                 },
                 "time": {
                     "type": "string",
-                    "measure": "s"
+                    "unit": "s",
+                    "description": "Unit measure of time, seconds in this case"
                 },
                 "value":{
                     "type": "number",
@@ -30,13 +32,14 @@ var td = {
                 }
             },
             "required": [
-                "value",
+                "speed",
             ],
             "forms": [{
                 "op": [
                     "readproperty",
                 ],
                 "href": "http://localhost:9000/virtual/wind_sensor/wind_sensor/speed",
+                "htv:methodName": "GET",
                 "contentType": "application/json"
             }],
 

@@ -1,0 +1,26 @@
+<script lang="ts" src="./script.ts">
+    import { onMount } from 'svelte';
+
+    let title = "CAPACITY";
+    let maxCapacity = 0;
+    let currCapacity = 0;
+    let td: Response;
+
+</script>
+
+<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1200 1200" style="enable-background:new 0 0 1200 1200;" xml:space="preserve">
+    <g>
+        <path id="state" class="st0" d="M1124.5,983H84.5c-16.57,0-30-13.43-30-30V413c0-16.57,13.43-30,30-30h1040c16.57,0,30,13.43,30,30v540
+            C1154.5,969.57,1141.07,983,1124.5,983z"/>
+    </g>
+    <g id="Info">
+        <path class="st1" d="M1074,931H134c-16.57,0-30-13.43-30-30V461c0-16.57,13.43-30,30-30h940c16.57,0,30,13.43,30,30v440
+            C1104,917.57,1090.57,931,1074,931z"/>
+    </g>
+    <text id="slash" transform="matrix(1 0 0 1 575 745)" class="st0 st2 st3">/</text>
+    <text id="Current" transform="matrix(1 0 0 1 320 745)" class="st0 st2 st3">{{currCapacity}}</text>
+    <text id="Limit" transform="matrix(1 0 0 1 630 745)" class="st0 st2 st3">{{maxCapacity}}</text>
+    <rect x="382.62" y="476.41" class="st4" width="473.34" height="137.87"/>
+    <text id="title" transform="matrix(1 0 0 1 245 340)" class="st0 st2 st5">{{title}}</text>
+</svg>

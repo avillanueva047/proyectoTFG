@@ -81,6 +81,12 @@ var td = {
             }]
         }
     },
-    "links": []
+    "links": [
+        {
+            "rel": "representedBy",
+            "href": "/alarm_controller_ui.js",
+            "type": "application/json"
+        }
+    ]
 }
 module.exports = td;

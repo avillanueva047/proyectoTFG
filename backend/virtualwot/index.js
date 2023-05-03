@@ -28,7 +28,6 @@ var td;
 
 /* Virtualizer */
 app.get("/virtual/:thingType/:virtualThing", async (req, res)=>{
-
     /* Temperature Things */
     if(req.params.thingType == "temperature_sensor"){
         if(req.params.virtualThing == "temperature_celsius"){
@@ -40,7 +39,20 @@ app.get("/virtual/:thingType/:virtualThing", async (req, res)=>{
             res.send(td);
         } 
     }
-
+    /*Alarm Things*/
+    else if(req.params.thingType == "alarm_controller"){
+        if(req.params.virtualThing == "alarm_controller"){
+            td = require('./things/alarm_controller/alarm_controller');
+            res.send(td);
+        }
+    }
+    /*Blinder Things*/
+    else if(req.params.thingType == "blind_controller"){
+        if(req.params.virtualThing == "blind_controller"){
+            td = require('./things/blind_controller/blind_controller');
+            res.send(td);
+        }
+    }
     /* Capacity Things */
     else if(req.params.thingType == "capacity_sensor"){
         if(req.params.virtualThing == "capacity_classroom"){
@@ -49,6 +61,83 @@ app.get("/virtual/:thingType/:virtualThing", async (req, res)=>{
         }
         else if(req.params.virtualThing == "capacity_cinema"){
             td = require('./things/capacity_sensor/capacity_cinema');
+            res.send(td);
+        }
+    }
+    /*Clock Things*/
+    else if(req.params.thingType == "clock"){
+        if(req.params.virtualThing == "clock"){
+            td = require('./things/clock/clock');
+            res.send(td);
+        }
+    }
+    /*Dimmer Things*/
+    else if(req.params.thingType == "dimmer_controller"){
+        if(req.params.virtualThing == "dimmer_controller"){
+            td = require('./things/dimmer_controller/dimmer_controller');
+            res.send(td);
+        }
+    }
+    /*Door Things*/
+    else if(req.params.thingType == "door_controller"){
+        if(req.params.virtualThing == "door_controller"){
+            td = require('./things/door_controller/door_controller');
+            res.send(td);
+        }
+    }
+    /*Gel Dispenser*/
+    else if(req.params.thingType == "gel_dispenser"){
+        if(req.params.virtualThing == "gel_dispenser"){
+            td = require('./things/gel_dispenser/gel_dispenser');
+            res.send(td);
+        }
+    }
+    /*Heart Rate*/
+    else if(req.params.thingType == "gel_dispenser"){
+        if(req.params.virtualThing == "gel_dispenser"){
+            td = require('./things/heart_rate/heart_rate');
+            res.send(td);
+        }
+    }
+    /*Humidity Sensor*/
+    else if(req.params.thingType == "humidity_sensor"){
+        if(req.params.virtualThing == "humidity_sensor"){
+            td = require('./things/humidity_sensor/humidity_sensor');
+            res.send(td);
+        }
+    }
+    /*Light Hub*/
+    else if(req.params.thingType == "light_hub"){
+        if(req.params.virtualThing == "light_hub"){
+            td = require('./things/light_hub/light_hub');
+            res.send(td);
+        }
+    }
+    /*Light Switch*/
+    else if(req.params.thingType == "light_switch"){
+        if(req.params.virtualThing == "light_switch"){
+            td = require('./things/light_switch/light_switch');
+            res.send(td);
+        }
+    }
+    /*RGB Controller*/
+    else if(req.params.thingType == "rgb_controller"){
+        if(req.params.virtualThing == "rgb_controller"){
+            td = require('./things/rgb_controller/rgb_controller');
+            res.send(td);
+        }
+    }
+    /*Wave Measurer*/
+    else if(req.params.thingType == "wave_measurer"){
+        if(req.params.virtualThing == "wave_measurer"){
+            td = require('./things/wave_measurer/wave_measurer');
+            res.send(td);
+        }
+    }
+    /*Wind Sensor*/
+    else if(req.params.thingType == "wind_sensor"){
+        if(req.params.virtualThing == "wind_sensor"){
+            td = require('./things/wind_sensor/wind_sensor');
             res.send(td);
         }
     }

@@ -198,7 +198,8 @@ app.get("/virtual/:thingType/:virtualThing/:property", async (req, res) => {
             td = require('./things/capacity_sensor/capacity_cinema');
             if(req.params.property == "capacity"){
                 res.send({
-                    "value": currentCapacityCinema
+                    "value": randn_bm(td.properties.capacity.properties.value.minimum,
+                        td.properties.capacity.properties.value.maximum, 0.5).toFixed(0)
                 })
             }
         }
@@ -206,7 +207,8 @@ app.get("/virtual/:thingType/:virtualThing/:property", async (req, res) => {
             td = require('./things/capacity_sensor/capacity_classroom');
             if(req.params.property == "capacity"){
                 res.send({
-                    "value": currentCapacityClassroom
+                    "value": randn_bm(td.properties.capacity.properties.value.minimum,
+                        td.properties.capacity.properties.value.maximum, 0.5).toFixed(0)
                 })
             }
         }

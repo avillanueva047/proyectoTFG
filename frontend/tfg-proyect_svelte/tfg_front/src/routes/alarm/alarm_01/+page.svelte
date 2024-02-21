@@ -1,6 +1,5 @@
 <script lang="ts" src="./script.ts">
 	import { onMount } from 'svelte';
-    import { element } from 'svelte/internal';
 
 	let resStatus: Response;
     let tdAlarm: any;
@@ -60,4 +59,28 @@
     </g>
 </svg>
 
-<style src="./style.css"></style>
+<style>
+    .st0{
+    fill:red;
+    animation: alarmActivated 0.2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    }
+
+    .st1{
+        fill: #666666;
+    }
+
+    .off{
+        fill: none;
+    }
+
+    .alarmOff{
+        fill: tomato;
+    }
+
+    @keyframes alarmActivated {
+        from { fill:red; }
+        to { fill:tomato; }
+    }
+</style>

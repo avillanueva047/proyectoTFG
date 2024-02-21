@@ -32,7 +32,6 @@ var td = {
                 "htv:methodName": "GET",
                 "contentType": "application/json"
             }],
-
         },
     },
     "action" : {

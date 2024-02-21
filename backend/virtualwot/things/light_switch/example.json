@@ -1,0 +1,26 @@
+{
+  "svg": [
+    {
+      "tag": "svg",
+      "attributes": {
+        "version": "1.1",
+        "id": "Capa_1",
+        "xmlns": "http://www.w3.org/2000/svg",
+        "xlink": "http://www.w3.org/1999/xlink",
+        "x": "0px",
+        "y": "0px",
+        "viewBox": "0 0 1200 1200",
+        "style": "enable-background:new 0 0 1200 1200;",
+        "space": "preserve"
+      },
+      "content": "\n\t <defs>\n\t\t<radialGradient id=\"off\" cx=\"50%\" cy=\"50%\" r=\"50%\">\n\t\t\t<stop stop-color=\"#FFCABF\" offset=\"60%\"></stop>\n\t\t\t<stop stop-color=\"white\" offset=\"100%\"></stop>\n\t\t</radialGradient>\n\t\t<radialGradient id=\"on\" cx=\"50%\" cy=\"50%\" r=\"50%\">\n\t\t\t<stop stop-color=\"#E1FBEE\" offset=\"60%\"></stop>\n\t\t\t<stop stop-color=\"white\" offset=\"100%\"></stop>\n\t\t</radialGradient>\n\t</defs>\n\t <g>\n\t\t<path class=\"st0\" d=\"M928.77,1119H271.23c-20.19,0-36.7-16.09-37.24-36.28c-4.59-170.07-6.75-340.15-6.48-510.22\n\t\t\tc0.24-151.41,2.4-302.81,6.48-454.22C234.53,98.09,251.03,82,271.22,82h657.55c20.17,0,36.69,16.05,37.24,36.21\n\t\t\tc4.24,157.43,6.4,314.85,6.49,472.29c0.09,164.09-2.07,328.19-6.49,492.29C965.47,1102.95,948.94,1119,928.77,1119z\"></path>\n\t</g>\n\t<g>\n\t\t<path class=\"st1\" d=\"M900.04,1093H299.17c-18.45,0-33.53-15.27-34.03-34.42c-4.19-161.38-6.17-322.76-5.93-484.15\n\t\t\tc0.22-143.67,2.19-287.34,5.93-431c0.5-19.16,15.58-34.43,34.03-34.43h600.87c18.43,0,33.53,15.23,34.03,34.36\n\t\t\tc3.87,149.38,5.85,298.76,5.93,448.15c0.08,155.7-1.89,311.41-5.93,467.13C933.57,1077.77,918.47,1093,900.04,1093z\"></path>\n\t</g>\n\t<g>\n\t\t<path id=\"switch\" class=\"st2\" d=\"M892.1,1083l-584.89,0c-17.96,0-32.64-15-33.13-33.81c-3.76-145.86-12.26-247.05-5.77-475.51\n\t\t\tc6.85-240.99-71.51-405.08,2.18-448.18c13.12-7.67,26.86-9.05,36.71-8.95l584.89,0c9.14,0.42,23.52,2.35,37.4,10.95\n\t\t\tc77.6,48.12-7.61,214.27,1.5,462.96c7.96,217.51-2.12,316.53-5.77,458.79C924.74,1068.04,910.04,1083,892.1,1083z\"></path>\n\t</g>\n\t<path class=\"st2\" d=\"M1054.5,284.5\"></path>\n\t<circle id=\"light_off\" class=\"st3\" cx=\"599.5\" cy=\"369.5\" r=\"230.5\"></circle>\n\t<circle id=\"led_off\" class=\"st4\" cx=\"600.5\" cy=\"372.5\" r=\"164.5\"></circle>\n\t<ellipse id=\"light_on\" class=\"st5\" cx=\"599.7\" cy=\"879.32\" rx=\"95.3\" ry=\"180.32\"></ellipse>\n\t<rect id=\"led_on\" x=\"589\" y=\"751\" class=\"st6\" width=\"21\" height=\"257\"></rect>\n"
+    }
+  ],
+  "style": [
+    {
+      "tag": "style",
+      "attributes": {},
+      "content": "\n    .st0{\n    fill:#F2F2F2;\n    }\n\n    .st1{\n        fill:#B3B3B3;\n    }\n\n    .st2{\n        fill:#FFFFFF;\n        transform-origin: center center;\n        transform: rotate(180deg);\n    }\n\n    .st3{\n        opacity:0.4;\n        fill: url(#off);\n    }\n\n    .st4{\n        fill:none;\n        stroke:#FF0000;\n        stroke-width:10;\n        stroke-miterlimit:10;\n    }\n\n    .st5{\n        opacity:0.4;\n        fill: none;\n    }\n\n    .st6{\n        fill:#797979;\n    }\n"
+    }
+  ]
+}

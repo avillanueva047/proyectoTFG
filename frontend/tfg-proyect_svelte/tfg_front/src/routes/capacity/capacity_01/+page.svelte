@@ -4,7 +4,70 @@
     let title = "CAPACITY";
     let maxCapacity = 0;
     let currCapacity = 0;
-    let td: Response;
+    let res: Response;
+    let td: any;
+
+    onMount(async() => {
+        res = await fetch('http://localhost:9000/virtual/capacity_sensor/capacity_cinema');
+        td = await res.json();
+        maxCapacity = td.properties.capacity.properties.value.maximum;
+        setInterval(
+            () => {
+                loop();
+            }, 5000
+        )
+    });
+
+    const loop = async () => {
+        let currCapacityResponse = await fetch (td.properties.capacity.forms[0].href);
+        let currJsonResponse = await currCapacityResponse.json();
+        currCapacity = currJsonResponse.value;
+
+        let titleElement = document.getElementById("title");
+        let slashElement = document.getElementById("slash");
+        let stateElement = document.getElementById("state");
+        let currElement = document.getElementById("Current");
+        let limitElement = document.getElementById("Limit");
+
+        switch (currCapacity.toString().length){
+            case(1):
+            currElement?.setAttribute("transform", "matrix(1 0 0 1 320 745)");
+            break;
+            case(2):
+            currElement?.setAttribute("transform", "matrix(1 0 0 1 260 745)");
+            break;
+            case(3):
+            currElement?.setAttribute("transform", "matrix(1 0 0 1 200 745)");
+            break;
+            case(4):
+            currElement?.setAttribute("transform", "matrix(1 0 0 1 120 745)");
+            break;
+        }
+        
+        switch(maxCapacity.toString().length){
+            case(1):
+            limitElement?.setAttribute("transform", "matrix(1 0 0 1 780 745)");
+            break;
+            case(2):
+            limitElement?.setAttribute("transform", "matrix(1 0 0 1 730 745)");
+            break;
+            case(3):
+            limitElement?.setAttribute("transform", "matrix(1 0 0 1 670 745)");
+            break;
+            case(4):
+            limitElement?.setAttribute("transform", "matrix(1 0 0 1 630 745)");
+            break;
+        }
+
+        //Animation
+        if (currCapacity == maxCapacity){
+            titleElement?.style.setProperty("fill", "red");
+            currElement?.style.setProperty("fill", "red");
+            slashElement?.style.setProperty("fill", "red");
+            limitElement?.style.setProperty("fill", "red");
+            stateElement?.style.setProperty("fill", "red");
+        }
+    }
 
 </script>
 
@@ -19,8 +82,9 @@
             C1104,917.57,1090.57,931,1074,931z"/>
     </g>
     <text id="slash" transform="matrix(1 0 0 1 575 745)" class="st0 st2 st3">/</text>
-    <text id="Current" transform="matrix(1 0 0 1 320 745)" class="st0 st2 st3">{{currCapacity}}</text>
-    <text id="Limit" transform="matrix(1 0 0 1 630 745)" class="st0 st2 st3">{{maxCapacity}}</text>
-    <rect x="382.62" y="476.41" class="st4" width="473.34" height="137.87"/>
-    <text id="title" transform="matrix(1 0 0 1 245 340)" class="st0 st2 st5">{{title}}</text>
+    <text id="Current" transform="matrix(1 0 0 1 240 745)" class="st0 st2 st3">{currCapacity}</text>
+    <text id="Limit" transform="matrix(1 0 0 1 670 745)" class="st0 st2 st3">{maxCapacity}</text>
+    <text id="title" transform="matrix(1 0 0 1 245 340)" class="st0 st2 st5">{title}</text>
 </svg>
+
+<style src="./style.css"></style>
